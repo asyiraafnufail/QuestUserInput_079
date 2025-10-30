@@ -5,11 +5,18 @@ import androidx.compose.foundation.content.MediaType.Companion.Text
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.materialIcon
+import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
@@ -27,6 +34,7 @@ import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.SemanticsProperties.Text
 import androidx.compose.ui.text.input.KeyboardType.Companion.Text
 import androidx.compose.ui.unit.dp
@@ -88,6 +96,21 @@ fun FormDataDiri(modifier: Modifier){
                     thickness = dimensionResource(R.dimen.divider_tipis),
                     color = Color.DarkGray
                 )
+
+                Button(
+                    modifier = Modifier.fillMaxWidth(1f),
+                    // The button is enabled when the user makes a section
+                    enabled = textAlamat.isNotEmpty(),
+                    onClick = {
+                        nama = textNama
+                        jenis = textJK
+                        alamat = textAlamat
+                    }
+                ){
+                    Icon(Icons.Default.Check, contentDescription = "Simpan")
+                    Spacer(Modifier.width(8.dp))
+                    Text(text = "Simpan")
+                }
             }
         }
     }
