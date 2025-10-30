@@ -8,13 +8,15 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.materialIcon
 import androidx.compose.material3.Button
+import androidx.compose.material3.CardColors
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CheckboxDefaults.colors
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -36,6 +38,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.SemanticsProperties.Text
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.KeyboardType.Companion.Text
 import androidx.compose.ui.unit.dp
 
@@ -109,8 +112,6 @@ fun FormDataDiri(modifier: Modifier){
                 alamat = textAlamat
             }
         ){
-            Icon(Icons.Default.Check, contentDescription = "Simpan")
-            Spacer(Modifier.width(8.dp))
             Text(text = "Simpan")
         }
 
@@ -121,5 +122,17 @@ fun FormDataDiri(modifier: Modifier){
             thickness = dimensionResource(R.dimen.divider_tipis),
             color = Color.DarkGray
         )
+
+        ElevatedCard(
+            elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.Black),
+            modifier = Modifier.height(100.dp).width(300.dp)
+        ){
+            Column(modifier = Modifier.padding(horizontal = 5.dp, vertical = 15.dp),){
+                Text(text = "Nama    : "+nama, color = Color.White)
+                Text(text = "JK      : "+jenis, color = Color.White)
+                Text(text = "Alamat  : "+alamat, color = Color.White)
+            }
+        }
     }
 }
