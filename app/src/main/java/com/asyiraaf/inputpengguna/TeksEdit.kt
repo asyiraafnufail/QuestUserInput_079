@@ -65,6 +65,7 @@ fun FormDataDiri(modifier: Modifier){
             shape = MaterialTheme.shapes.large,
             modifier = Modifier.width(250.dp),
             label = { Text(text = "Nama Lengkap") },
+            placeholder = { Text("Masukkan nama lengkap Anda") },
             onValueChange = {
                 textNama = it
             }
